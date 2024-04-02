@@ -1,15 +1,15 @@
 import { Typography, Box } from "@mui/material";
 import lightMode from "../assets/lightMode.png";
-import darkMode from "../assets/darkMode.png";
+import darkMode from "../assets/darkmode.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+import { CHANGE_THEME } from "../Store/actionType";
 
 function TopBar() {
   const theme = useSelector((state) => state.darkMode);
 
   const dispatch = useDispatch();
-  const state = useSelector((state) => state);
   useEffect(() => {
     const slider =
       document.getElementById("outerbox1") ||
@@ -26,7 +26,7 @@ function TopBar() {
     });
   }, []);
   const handleDarkMode = () => {
-    dispatch({ type: "THEME" });
+    dispatch({ type: CHANGE_THEME });
   };
   return (
     <>

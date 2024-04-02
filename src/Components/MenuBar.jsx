@@ -12,12 +12,14 @@ import menubarMENU from "../assets/menubarMENU.png";
 import menubarAllEmail from "../assets/menubarALLEMAIL.png";
 import menubarBarChart from "../assets/menubarBARCHART.png";
 import { useDispatch, useSelector } from "react-redux";
+import { GET_MAILS } from "../Store/actionType";
+import { useNavigate } from "react-router-dom";
 // redux import useD useSelector
 
 function MenuBar() {
 //   const { theme , setTheme} = useContext(ThemeContext);
+const navigate = useNavigate();
 const theme = useSelector((state) => state.darkMode);
-const dispatch = useDispatch();
   return (
     <>
       <Box
@@ -36,7 +38,7 @@ const dispatch = useDispatch();
         }}
       >
         <img
-            onClick={() => dispatch({ type: "MAILS" })}
+            onClick={() => navigate('/')}
           src={theme ? menubarLogo : logoDarkMode}
           alt="ONEBOX"
           width="26px"

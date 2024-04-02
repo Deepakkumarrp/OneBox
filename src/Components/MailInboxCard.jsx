@@ -1,11 +1,21 @@
 import { Box, Typography } from "@mui/material";
 import menubarsendemail from "../assets/menubarsendemail.png";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 function MailInboxCard({ mail }) {
   const theme = useSelector((state) => state.darkMode);
+  const navigate = useNavigate();
 
   // bgcolor: theme ? "#202022" : "#FAFAFA",
   // color: theme ? "#FAFAFA" : "#000000",
+  // const col = "#626fe6";
+  const col = theme ? "#626fe6" : "#E6d162";
+
+  const secCol = "#323440";
+
+  function handleClick(id){
+    navigate(`/${id}`)
+  }
   return (
     <>
       <Box
@@ -13,6 +23,7 @@ function MailInboxCard({ mail }) {
           borderBottom: `1px solid ${theme ? "#203137" : "transparent"}`,
           paddingY: "15px",
         }}
+        onClick={() => handleClick(mail.threadId)}
       >
         <Box
           sx={{
@@ -31,7 +42,7 @@ function MailInboxCard({ mail }) {
               color: theme ? "#FAFAFA" : "#000000",
             }}
           >
-            {mail.fromEmail}
+            {mail.fromEmail.slice(0, 15)}..
           </Typography>
 
           <Typography
@@ -43,7 +54,7 @@ function MailInboxCard({ mail }) {
               color: theme ? "#FAFAFA" : "#000000",
             }}
           >
-            {mail.sentAt}
+            {mail.sentAt.slice(0, 10)}
           </Typography>
         </Box>
         <Typography
@@ -57,7 +68,7 @@ function MailInboxCard({ mail }) {
             // color: "#",
           }}
         >
-          {mail.subject}
+          {mail.subject.slice(0,30)}{mail?.subject?.length > 30 ? '...': ''}
         </Typography>
         <Box sx={{ display: "flex", paddingY: "5px", gap: "10px" }}>
           <Box
@@ -89,19 +100,19 @@ function MailInboxCard({ mail }) {
                 opacity: 0.5,
                 position: "absolute",
                 borderRadius: "50%",
-                bgcolor: mail.secCol,
+                bgcolor: secCol,
               }}
             ></Box>
             <Typography
               sx={{
                 textWrap: "nowrap",
-                color: mail.col,
+                color: col,
                 fontSize: "9px",
                 paddingY: "8px",
                 fontWeight: 400,
               }}
             >
-              {mail.status}
+              {mail.isRead ? 'Read' : 'UnRead'}
             </Typography>
           </Box>
           <Box

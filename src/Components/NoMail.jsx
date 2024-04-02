@@ -1,10 +1,7 @@
 import { useSelector } from "react-redux";
 import noMailIllustration from "../assets/noMailIllustration.png";
 import { Box, Typography } from "@mui/material";
-import { useEffect } from "react";
-import { useNavigate } from "react-router";
 function NoMail() {
-  const navigate = useNavigate();
   const theme = useSelector((state) => state.darkMode);
 
   const isLoggedIn = useSelector((state) => state.isLoggedIn);

@@ -21,7 +21,7 @@ function DeleteMail({ setDeleteMail }) {
           color: theme ? "white" : "black",
           // bgcolor: theme ? "#23272C" : "#ECEFF3",
           // background: "linear-gradient(180deg, #141517 0%, #232528 100%)",
-          background: "linear-gradient(90deg, #FFFFFF 0%, #E0E0E0 100%)",
+          // background: "linear-gradient(90deg, #FFFFFF 0%, #E0E0E0 100%)",
 
           background: `linear-gradient(90deg, ${
             theme ? "#141517" : "#ffffff"

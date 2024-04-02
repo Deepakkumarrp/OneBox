@@ -8,6 +8,7 @@ function MainRoute() {
     <>
         <Routes>
             <Route path='/' element ={<Home />}/>
+            <Route path='/:threadID' element ={<Home />}/>
             <Route path='/login' element={<Login />} />
         </Routes>
     </>

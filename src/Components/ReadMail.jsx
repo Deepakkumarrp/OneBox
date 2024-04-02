@@ -7,20 +7,20 @@ import expand from "../assets/expandButton2.png";
 import replyIcon from "../assets/reply.png";
 import arrow_dropDown from "../assets/arrow_dropDown.png";
 import MailEditor from "./MailEditor";
-import { useState } from "react";
+import {  useState } from "react";
 import DeleteMail from "./DeleteMail";
-import { useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 function ReadMail() {
   const [reply, setReply] = useState(false);
   const [deletemail, setDeleteMail] = useState(false);
   const [readAll, setReadAll] = useState(false);
 
   const theme = useSelector((state) => state.darkMode);
+  
   const message = {
     subject: "New Product Launch",
     time: "20 june 2022 : 9:16AM",
     to: "to : lennon.j@mail.com",
-    // from : jeanne@icloud.com cc : lennon.j@mail.com
     from: "from : jeanne@icloud.com cc : lennon.j@mail.com",
     cc: "to : lennon.j@mail.com",
     intro: "Hi {FIRST_NAME} ",
@@ -49,7 +49,7 @@ function ReadMail() {
 
   return (
     <>
-      <Box>
+      <Box >
         <Box
           sx={{
             width: "700px",
@@ -63,7 +63,6 @@ function ReadMail() {
             justifyContent: "space-between",
             borderRadius: "7px 7px 0px 0px",
             border: "0px solid transparent",
-            // borderBottom: "1px solid #101113",
 
             bgcolor: theme ? "#000000" : "#FAFAFA",
             color: theme ? "#FAFAFA" : "#000000",

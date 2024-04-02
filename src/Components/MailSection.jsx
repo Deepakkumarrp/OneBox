@@ -7,11 +7,12 @@ import ReadMail from "./ReadMail";
 import { useState } from "react";
 import { useSelector } from "react-redux";
 function MailSection() {
-  const [mails, setMails] = useState(true);
+  // const [mails, setMails] = useState(true);
+  const mails = useSelector(store => store.mails);
   const theme = useSelector((state) => state.darkMode);
   return (
     <>
-      {mails ? (
+      {mails.length > 0 ? (
         <Box
           sx={{
             display: "flex",

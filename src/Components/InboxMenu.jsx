@@ -6,51 +6,52 @@ import { useSelector } from "react-redux";
 import SearchIcon from "@mui/icons-material/Search";
 function InboxMenu() {
   const theme = useSelector((state) => state.darkMode);
-  var mails = [
-    {
-      fromEmail: "Beata@gmail.com",
-      status: "Interested",
-      subject: "I've tried a lot and .",
-      sentAt: "Mar 7",
-      col: "#57E0A6",
-      secCol: "#2D3833",
-    },
-    {
-      fromEmail: "Sanya@gmail.com",
-      status: "Closed",
-      subject: "I've tried a lot and .",
-      sentAt: "Mar 7",
-      // col: "#626fe6",
-      col: theme ? "#626fe6" : "#E6d162",
+  const mails = useSelector(state => state.mails);
+  // var mails = [
+  //   {
+  //     fromEmail: "Beata@gmail.com",
+  //     status: "Interested",
+  //     subject: "I've tried a lot and .",
+  //     sentAt: "Mar 7",
+  //     col: "#57E0A6",
+  //     secCol: "#2D3833",
+  //   },
+  //   {
+  //     fromEmail: "Sanya@gmail.com",
+  //     status: "Closed",
+  //     subject: "I've tried a lot and .",
+  //     sentAt: "Mar 7",
+  //     // col: "#626fe6",
+  //     col: theme ? "#626fe6" : "#E6d162",
 
-      secCol: "#323440",
-    },
-    {
-      fromEmail: "William@gmail.com",
-      subject: "Payment not going through",
-      status: "Interested",
-      sentAt: "Mar 7",
-      col: "#57E0A6",
-      secCol: "#2D3833",
-    },
-    {
-      fromEmail: "johnson@gmail.com",
-      status: "Meeting Booked",
-      subject: "Could you tell me more about it",
-      sentAt: "Mar 7",
-      col: "#9c62e6",
-      secCol: "#352f3c",
-    },
-    {
-      fromEmail: "Sanya@gmail.com",
-      status: "Meeting Completed",
-      subject: "Hi, I am Interested",
-      sentAt: "18:30",
-      col: theme ? "#E6D162" : "#c7b34b",
+  //     secCol: "#323440",
+  //   },
+  //   {
+  //     fromEmail: "William@gmail.com",
+  //     subject: "Payment not going through",
+  //     status: "Interested",
+  //     sentAt: "Mar 7",
+  //     col: "#57E0A6",
+  //     secCol: "#2D3833",
+  //   },
+  //   {
+  //     fromEmail: "johnson@gmail.com",
+  //     status: "Meeting Booked",
+  //     subject: "Could you tell me more about it",
+  //     sentAt: "Mar 7",
+  //     col: "#9c62e6",
+  //     secCol: "#352f3c",
+  //   },
+  //   {
+  //     fromEmail: "Sanya@gmail.com",
+  //     status: "Meeting Completed",
+  //     subject: "Hi, I am Interested",
+  //     sentAt: "18:30",
+  //     col: theme ? "#E6D162" : "#c7b34b",
 
-      secCol: "#444234",
-    },
-  ];
+  //     secCol: "#444234",
+  //   },
+  // ];
   return (
     <Box
       sx={{
@@ -91,7 +92,7 @@ function InboxMenu() {
         </Box>
       </Box>
       <Box sx={{ marginY: "15px" }}>
-        <strong>25/25</strong> Inbox selected
+        <strong>{mails.length}/{mails.length}</strong> Inbox selected
       </Box>
       <Box
         className="flex items-center"
@@ -140,7 +141,7 @@ function InboxMenu() {
               bgcolor: theme ? "#222426" : "#ECECEC",
             }}
           >
-            26
+            10
           </Typography>
           <Typography>New Replies</Typography>
         </Box>
@@ -149,7 +150,7 @@ function InboxMenu() {
       </Box>
 
       <Box>
-        {mails.map((mail) => (
+        {mails.length > 0 && mails.map((mail) => (
           <MailInboxCard mail={mail} />
         ))}
       </Box>

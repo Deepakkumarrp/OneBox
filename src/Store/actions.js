@@ -1,3 +1,5 @@
+import { LOGIN } from "./actionType";
+
 export const login = () => {
-  return { type: "LOGIN" };
+  return { type: LOGIN , payload: true };
 };

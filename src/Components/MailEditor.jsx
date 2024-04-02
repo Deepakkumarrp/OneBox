@@ -9,7 +9,11 @@ import emoji from "../assets/emoji.png";
 import person_remove from "../assets/person_remove.png";
 import unfold_more from "../assets/unfold_more.png";
 import { useSelector } from "react-redux";
+import { useParams } from "react-router-dom";
 function MailEditor({ setReply }) {
+  const {threadID} = useParams();
+  console.log(threadID)
+
   const mailBody = {
     toName: "Mitrajit",
     to: "chandra.rupam@gmail.com",
@@ -26,20 +30,46 @@ function MailEditor({ setReply }) {
     inReplyTo: "<a1383d57-fdee-60c0-d46f-6bc440409e84@gmail.com>",
   };
   const handleReply = async () => {
-    const tok = localStorage.getItem("token");
-    const res = await fetch(
-      "https://hiring.reachinbox.xyz/api/v1/onebox/list",
-      {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${tok}`,
-        },
-        body: JSON.Stringify(mailBody),
-      }
-    );
-    const mails = await res.json();
+    // const tok = localStorage.getItem("token");
+    // const res = await fetch(
+    //   "https://hiring.reachinbox.xyz/api/v1/onebox/list",
+    //   {
+    //     method: "POST",
+    //     headers: {
+    //       Authorization: `Bearer ${tok}`,
+    //     },
+    //     body: JSON.Stringify(mailBody),
+    //   }
+    // );
+    // const mails = await res.json();
   };
   const theme = useSelector((state) => state.darkMode);
+
+
+  // useEffect(() => {
+  //   const getMails = async () => {
+      
+  //     try{
+
+  //       const res = await fetch(
+  //         "https://hiring.reachinbox.xyz/api/v1/onebox/list",
+  //         {
+  //           method: "GET",
+  //           headers: {
+  //             Authorization: `Bearer ${TOKEN}`,
+  //           },
+  //         }
+  //         );
+  //         const mails = await res.json();
+  //         console.log(mails.data);
+  //         dispatch({type: GET_MAILS , payload: mails.data})
+  //       }catch(err){
+  //         console.log(err);
+  //       }
+  //   };
+  //   getMails();
+  // }),[navigate,dispatch];
+  
   return (
     <>
       {/* <Box className="flex flex-col">MailEditor</Box> */}
@@ -61,14 +91,14 @@ function MailEditor({ setReply }) {
         }}
       >
         {/* <Box sx={ {width: Fixed (752px)px;
-height: Fixed (38px)px;
-padding: 20px 32px 20px 32px;
-gap: 10px;
-border-radius: 8px 8px 0px 0px;
-border: 1px 0px 0px 0px;
-opacity: 0px;
- background: #23272C;
- border: 1px solid #41464B}}  >Reply</Box> */}
+            height: Fixed (38px)px;
+            padding: 20px 32px 20px 32px;
+            gap: 10px;
+            border-radius: 8px 8px 0px 0px;
+            border: 1px 0px 0px 0px;
+            opacity: 0px;
+            background: #23272C;
+            border: 1px solid #41464B}}  >Reply</Box> */}
         <Box
           className="flex justify-between items-center"
           sx={{
@@ -84,9 +114,8 @@ opacity: 0px;
             bgcolor: theme ? "#23272C" : "#ECEFF3",
           }}
         >
-          <Typography> Reply</Typography>
+          <Typography> Reply </Typography>
           <CloseIcon onClick={() => setReply(false)} />
-          {/* <Typography onClick={() => setReply(false)}>X</Typography> */}
         </Box>
 
         <Box
@@ -96,8 +125,6 @@ opacity: 0px;
             height: "38px",
             padding: "20px 32px",
             gap: "10px",
-
-            // borderBottom: "1px solid #41464B",
             borderBottom: `1px solid ${theme ? "#41464B" : "#E8E8E8"}`,
 
             color: theme ? "#FAFAFA" : "black",

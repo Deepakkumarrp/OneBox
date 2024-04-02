@@ -4,6 +4,8 @@ import googleLogo from "../assets/googlelogo.png";
 import reachInboxLogo from "../assets/reachInboxLogo.png";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { login } from "../Store/actions";
+import { LOGIN } from "../Store/actionType";
 
 function Login() {
   const theme = useSelector((state) => state.darkMode);
@@ -14,7 +16,7 @@ function Login() {
       sx={{
         display: "flex",
         flexDirection: "column",
-        minHeight: "100vh", // Make the container take up the full height of the viewport
+        minHeight: "100vh", 
       }}
     >
       <Box
@@ -25,7 +27,6 @@ function Login() {
           justifyContent: "center",
           alignItems: "center",
           height: "64px",
-          // bgcolor: "black", //theme
           bgcolor: theme ? "black" : "white",
         }}
       >
@@ -41,7 +42,6 @@ function Login() {
         <Box
           sx={{
             margin: "auto",
-            // width: "460px",
             width: ["90%", "80%", "460px"],
             color: "#C1C2C5",
             display: "flex",
@@ -51,10 +51,9 @@ function Login() {
             justifyContent: "space-around",
             borderRadius: "17px",
             border: "1px solid #343A40",
-            height: "312px",
             height: "auto",
-            minHeight: "300px", // Set minimum height
-            padding: "20px", // Padding for inner content
+            minHeight: "300px", 
+            padding: "20px", 
           }}
         >
           <Typography color={"#FFFFFF"} fontSize={"20px"}>
@@ -77,10 +76,10 @@ function Login() {
             <Link
               onClick={() => {
                 localStorage.setItem("isLoggedIn", true);
-                // dispatch({ type: "LOGIN", payload: true });
+                dispatch({ type: LOGIN, payload: true });
               }}
-              // to="https://hiring.reachinbox.xyz/api/v1/auth/google-login?redirect_to=http://localhost:5173/"
-                to="https://hiring.reachinbox.xyz/api/v1/auth/google-login?redirect_to=https://one-box-brown.vercel.app/"
+              to="https://hiring.reachinbox.xyz/api/v1/auth/google-login?redirect_to=http://localhost:5173/"
+                // to="https://hiring.reachinbox.xyz/api/v1/auth/google-login?redirect_to=https://one-box-brown.vercel.app/"
             >
               Sign Up with Google
             </Link>
