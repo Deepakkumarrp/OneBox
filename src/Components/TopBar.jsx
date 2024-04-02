@@ -1,6 +1,6 @@
 import { Typography, Box } from "@mui/material";
 import lightMode from "../assets/lightMode.png";
-import darkMode from "../assets/darkmode.png";
+import darkMode from "../assets/darkMode.png";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
