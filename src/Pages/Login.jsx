@@ -78,8 +78,8 @@ function Login() {
                 localStorage.setItem("isLoggedIn", true);
                 dispatch({ type: LOGIN, payload: true });
               }}
-              to="https://hiring.reachinbox.xyz/api/v1/auth/google-login?redirect_to=http://localhost:5173/"
-                // to="https://hiring.reachinbox.xyz/api/v1/auth/google-login?redirect_to=https://one-box-brown.vercel.app/"
+              // to="https://hiring.reachinbox.xyz/api/v1/auth/google-login?redirect_to=http://localhost:5173/"
+                to="https://hiring.reachinbox.xyz/api/v1/auth/google-login?redirect_to=https://one-box-brown.vercel.app/"
             >
               Sign Up with Google
             </Link>
