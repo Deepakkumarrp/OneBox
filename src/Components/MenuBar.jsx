@@ -38,7 +38,7 @@ const theme = useSelector((state) => state.darkMode);
         }}
       >
         <img
-            onClick={() => navigate('/')}
+            // onClick={() => navigate('/')}
           src={theme ? menubarLogo : logoDarkMode}
           alt="ONEBOX"
           width="26px"

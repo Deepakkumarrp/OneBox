@@ -12,7 +12,43 @@ function Home() {
   const mails = useSelector(store => store.mails);
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const token = useSelector(store => store.token);
+  // const token = useSelector(store => store.token);
+
+  const location = useLocation();
+  const token = location.search.substring(7);
+  localStorage.setItem("token", token);
+  if(token){
+    dispatch({type: GET_TOKEN, payload: token});
+  }
+
+  // useEffect(() => {
+  //   const getMails = async () => {
+  //     const isLoggedIn = localStorage.getItem("isLoggedIn");
+  //     console.log("REDIRECT:", isLoggedIn);
+  //     if (!isLoggedIn) {
+  //       navigate("/login");
+  //       return;
+  //     }
+  //     const TOKEN = localStorage.getItem("token");
+  //     try{
+  //       const res = await fetch(
+  //         "https://hiring.reachinbox.xyz/api/v1/onebox/list",
+  //         {
+  //           method: "GET",
+  //           headers: {
+  //             Authorization: `Bearer ${TOKEN}`,
+  //           },
+  //         }
+  //         );
+  //         const mails = await res.json();
+  //         console.log(mails.data);
+  //         dispatch({type: GET_MAILS , payload: mails.data})
+  //       }catch(err){
+  //         console.log(err);
+  //       }
+  //   };
+  //   getMails();
+  // }),[navigate,dispatch];
 
   useEffect(() => {
     const tokenFromStorage = localStorage.getItem("token");
