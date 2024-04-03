@@ -14,7 +14,8 @@ function MailInboxCard({ mail }) {
   const secCol = "#323440";
 
   function handleClick(id){
-    navigate(`/${id}`)
+    // navigate(`/${id}`)
+    console.log(id);
   }
   return (
     <>
